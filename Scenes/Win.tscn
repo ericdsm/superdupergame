@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Win" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 351.1
+margin_top = 210.083
+margin_right = 411.1
+margin_bottom = 224.083
+rect_scale = Vector2( 6.28, 8.76 )
+text = "YOU WIN"

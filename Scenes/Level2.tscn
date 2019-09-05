@@ -32,13 +32,13 @@ func _ready():
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 35, 70, 36, 70, 70, 0, 70 )
 
-[sub_resource type="TileSet" id=7]
+[sub_resource type="TileSet" id=6]
 0/name = "grassMid.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -51,7 +51,7 @@ points = PoolVector2Array( 0, 35, 70, 36, 70, 70, 0, 70 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -67,7 +67,7 @@ points = PoolVector2Array( 0, 35, 70, 36, 70, 70, 0, 70 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -118,27 +118,26 @@ current = true
 [node name="Objects" type="Node2D" parent="Level"]
 
 [node name="Coins" type="Node2D" parent="Level/Objects"]
-editor/display_folded = true
 position = Vector2( 135.631, 53.9495 )
 
 [node name="Coin" parent="Level/Objects/Coins" instance=ExtResource( 3 )]
-position = Vector2( 316, 180 )
+position = Vector2( 236.487, 17.9806 )
 
 [node name="Coin2" parent="Level/Objects/Coins" instance=ExtResource( 3 )]
-position = Vector2( 276.1, 146.75 )
+position = Vector2( 281.652, 17.2065 )
 
 [node name="Coin3" parent="Level/Objects/Coins" instance=ExtResource( 3 )]
-position = Vector2( 354, 144.85 )
+position = Vector2( 331.793, 4.20279 )
 
 [node name="Coin4" parent="Level/Objects/Coins" instance=ExtResource( 3 )]
-position = Vector2( 312.2, 104.95 )
+position = Vector2( 378.822, 19.8214 )
 
 [node name="Coin5" parent="Level/Objects/Coins" instance=ExtResource( 3 )]
-position = Vector2( 503.15, 148.65 )
+position = Vector2( 425.424, 24.6584 )
 
 [node name="Flag" parent="Level/Objects" instance=ExtResource( 4 )]
 position = Vector2( 787.988, 314.585 )
-target = "res://Scenes/Level2.tscn"
+target = "res://Scenes/Level3.tscn"
 
 [node name="Blocks" type="Node2D" parent="Level"]
 editor/display_folded = true
@@ -274,18 +273,30 @@ shape = SubResource( 3 )
 
 [node name="Hazards" type="Node2D" parent="Level"]
 
-[node name="Spike" parent="Level/Hazards" instance=ExtResource( 6 )]
-position = Vector2( 455.807, 381.606 )
+[node name="Area2D" parent="Level/Hazards" instance=ExtResource( 6 )]
+position = Vector2( 324.413, 377.905 )
+
+[node name="Area2D2" parent="Level/Hazards" instance=ExtResource( 6 )]
+position = Vector2( 405.84, 377.905 )
+
+[node name="Area2D3" parent="Level/Hazards" instance=ExtResource( 6 )]
+position = Vector2( 485.417, 379.755 )
+
+[node name="Area2D4" parent="Level/Hazards" instance=ExtResource( 6 )]
+position = Vector2( 579.799, 383.457 )
 
 [node name="TileMap" type="TileMap" parent="Level"]
-tile_set = SubResource( 7 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 70, 70 )
 format = 1
-tile_data = PoolIntArray( -131072, 0, 0, -131060, 0, 0, -65536, 0, 0, -65524, 0, 0, 0, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262149, 0, 0, 262156, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0 )
+tile_data = PoolIntArray( -131072, 0, 0, -131060, 0, 0, -65536, 0, 0, -65524, 0, 0, 0, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196612, 0, 0, 196614, 0, 0, 196616, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0 )
 [connection signal="coin_collected" from="Level/Objects/Coins/Coin" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Objects/Coins/Coin2" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Objects/Coins/Coin3" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Objects/Coins/Coin4" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Objects/Coins/Coin5" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="nextlevel" from="Level/Objects/Flag" to="Player/KinematicBody2D" method="_on_Flag_nextlevel"]
-[connection signal="spiked" from="Level/Hazards/Spike" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]
+[connection signal="spiked" from="Level/Hazards/Area2D" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]
+[connection signal="spiked" from="Level/Hazards/Area2D2" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]
+[connection signal="spiked" from="Level/Hazards/Area2D3" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]
+[connection signal="spiked" from="Level/Hazards/Area2D4" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]
