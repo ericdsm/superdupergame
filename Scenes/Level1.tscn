@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/p1_front.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/castle.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Area2D.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/castle.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/grassMid.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/spikes.png" type="Texture" id=7]
 
@@ -31,15 +31,13 @@ func _ready():
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="CircleShape2D" id=4]
-
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 35, 70, 36, 70, 70, 0, 70 )
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=7]
 0/name = "grassMid.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
@@ -68,7 +66,7 @@ points = PoolVector2Array( 0, 35, 70, 36, 70, 70, 0, 70 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -116,9 +114,27 @@ current = true
 
 [node name="Level" type="Node2D" parent="."]
 
+[node name="Coins" type="Node2D" parent="Level"]
+position = Vector2( 135.631, 53.9495 )
+
+[node name="Coin" parent="Level/Coins" instance=ExtResource( 3 )]
+position = Vector2( 316, 180 )
+
+[node name="Coin2" parent="Level/Coins" instance=ExtResource( 3 )]
+position = Vector2( 276.1, 146.75 )
+
+[node name="Coin3" parent="Level/Coins" instance=ExtResource( 3 )]
+position = Vector2( 354, 144.85 )
+
+[node name="Coin4" parent="Level/Coins" instance=ExtResource( 3 )]
+position = Vector2( 312.2, 104.95 )
+
+[node name="Coin5" parent="Level/Coins" instance=ExtResource( 3 )]
+position = Vector2( 503.15, 148.65 )
+
 [node name="Blocks" type="Node2D" parent="Level"]
 editor/display_folded = true
-position = Vector2( -147.685, -531.666 )
+position = Vector2( -142.65, -814.521 )
 
 [node name="Block" type="Node2D" parent="Level/Blocks"]
 editor/display_folded = true
@@ -129,7 +145,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block"]
 
@@ -145,7 +161,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block2"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block2"]
 
@@ -161,7 +177,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block3"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block3"]
 
@@ -177,7 +193,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block4"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block4"]
 
@@ -193,7 +209,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block5"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block5"]
 
@@ -209,7 +225,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block6"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block6"]
 
@@ -225,7 +241,7 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block7"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block7"]
 
@@ -241,39 +257,20 @@ __meta__ = {
 }
 
 [node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block8"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block8"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block8/StaticBody2D"]
 shape = SubResource( 3 )
 
-[node name="Coins" type="Node2D" parent="Level"]
-position = Vector2( 135.631, 53.9495 )
+[node name="Hazards" type="Node2D" parent="Level"]
 
-[node name="Coin" parent="Level/Coins" instance=ExtResource( 4 )]
-position = Vector2( 316, 180 )
+[node name="Area2D" parent="Level/Hazards" instance=ExtResource( 5 )]
+position = Vector2( 455.807, 381.606 )
 
-[node name="Coin2" parent="Level/Coins" instance=ExtResource( 4 )]
-position = Vector2( 276.1, 146.75 )
-
-[node name="Coin3" parent="Level/Coins" instance=ExtResource( 4 )]
-position = Vector2( 354, 144.85 )
-
-[node name="Coin4" parent="Level/Coins" instance=ExtResource( 4 )]
-position = Vector2( 312.2, 104.95 )
-
-[node name="Coin5" parent="Level/Coins" instance=ExtResource( 4 )]
-position = Vector2( 503.15, 148.65 )
-
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 4 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource( 7 )
 cell_size = Vector2( 70, 70 )
 format = 1
 tile_data = PoolIntArray( -131072, 0, 0, -131060, 0, 0, -65536, 0, 0, -65524, 0, 0, 0, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262149, 0, 0, 262156, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0 )
@@ -282,3 +279,4 @@ tile_data = PoolIntArray( -131072, 0, 0, -131060, 0, 0, -65536, 0, 0, -65524, 0,
 [connection signal="coin_collected" from="Level/Coins/Coin3" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Coins/Coin4" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Coins/Coin5" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
+[connection signal="spiked" from="Level/Hazards/Area2D" to="Player/KinematicBody2D" method="_on_Area2D_spiked"]

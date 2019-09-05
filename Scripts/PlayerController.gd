@@ -35,3 +35,8 @@ func _on_Coin_coin_collected():
 func updateUi():
 	LivesLabel.set_text(str("Lives: ", GameData.lives))
 	ScoreLabel.set_text(str("Score: ", GameData.score))
+
+func _on_Area2D_spiked():
+	GameData.lives -= 1
+	updateUi()
+	get_tree().reload_current_scene()
