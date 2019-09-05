@@ -12,7 +12,7 @@ margin_top = 374.405
 margin_right = 346.864
 margin_bottom = 388.405
 rect_scale = Vector2( 3.49306, 5.10761 )
-text = "OMAE NO GEEMU WA MOU OWARU"
+text = "OMAE NO GEEMU WA MOU OWATTEIRU"
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 826.024
