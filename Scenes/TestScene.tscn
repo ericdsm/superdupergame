@@ -1,0 +1,245 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/p1_front.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/castle.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Area2D.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/grassMid.png" type="Texture" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 23.0
+height = 50.0
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "grassMid.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 70, 70 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Root" type="Node2D"]
+position = Vector2( -27.2352, -32.1235 )
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( -0.95001, 123.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Player" groups=[
+"Player",
+]]
+position = Vector2( 175.81, 37.0974 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="PlayerSprite" type="Sprite" parent="Player/KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Player/KinematicBody2D"]
+current = true
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Blocks" type="Node2D" parent="Level"]
+editor/display_folded = true
+
+[node name="Block" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 182.513, 249.7 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block2" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 250.914, 287.7 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block2"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block2/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block3" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 318.364, 278.2 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block3"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block3/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block4" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 409.564, 224.05 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block4"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block4/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block5" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 509.314, 236.4 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block5"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block5/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block6" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 632.908, 353.313 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block6"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block6/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block7" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 773.203, 271.474 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block7"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block7/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Block8" type="Node2D" parent="Level/Blocks"]
+editor/display_folded = true
+position = Vector2( 890.116, 199.656 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlockSprite" type="Sprite" parent="Level/Blocks/Block8"]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Blocks/Block8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Blocks/Block8/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Coins" type="Node2D" parent="Level"]
+
+[node name="Coin" parent="Level/Coins" instance=ExtResource( 4 )]
+position = Vector2( 316, 180 )
+
+[node name="Coin2" parent="Level/Coins" instance=ExtResource( 4 )]
+position = Vector2( 276.1, 146.75 )
+
+[node name="Coin3" parent="Level/Coins" instance=ExtResource( 4 )]
+position = Vector2( 354, 144.85 )
+
+[node name="Coin4" parent="Level/Coins" instance=ExtResource( 4 )]
+position = Vector2( 312.2, 104.95 )
+
+[node name="Coin5" parent="Level/Coins" instance=ExtResource( 4 )]
+position = Vector2( 503.15, 148.65 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 70, 70 )
+format = 1
+tile_data = PoolIntArray( 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0 )
+[connection signal="coin_collected" from="Level/Coins/Coin" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
+[connection signal="coin_collected" from="Level/Coins/Coin2" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
+[connection signal="coin_collected" from="Level/Coins/Coin3" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
+[connection signal="coin_collected" from="Level/Coins/Coin4" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
+[connection signal="coin_collected" from="Level/Coins/Coin5" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
