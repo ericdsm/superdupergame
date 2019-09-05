@@ -19,6 +19,10 @@ config/name="TestProject"
 run/main_scene="res://Scenes/TestScene.tscn"
 config/icon="res://Sprites/icon.png"
 
+[autoload]
+
+GameData="*res://Scripts/GameData.gd"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

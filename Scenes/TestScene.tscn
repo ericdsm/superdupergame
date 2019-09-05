@@ -56,6 +56,23 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 [node name="Root" type="Node2D"]
 position = Vector2( -27.2352, -32.1235 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer"]
+anchor_right = 0.51
+margin_left = 5.51953
+margin_top = 8.8972
+margin_right = 150.52
+margin_bottom = 22.8972
+text = "Lives: number_of_lives"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+margin_left = 7.92841
+margin_top = 31.9838
+margin_right = 152.928
+margin_bottom = 45.9838
+text = "Score: player_score"
+
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( -0.95001, 123.5 )
 __meta__ = {
@@ -81,6 +98,7 @@ current = true
 
 [node name="Blocks" type="Node2D" parent="Level"]
 editor/display_folded = true
+position = Vector2( -147.685, -531.666 )
 
 [node name="Block" type="Node2D" parent="Level/Blocks"]
 editor/display_folded = true
@@ -237,7 +255,7 @@ shape = SubResource( 4 )
 tile_set = SubResource( 6 )
 cell_size = Vector2( 70, 70 )
 format = 1
-tile_data = PoolIntArray( 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0 )
+tile_data = PoolIntArray( 262149, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 [connection signal="coin_collected" from="Level/Coins/Coin" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Coins/Coin2" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="Level/Coins/Coin3" to="Player/KinematicBody2D" method="_on_Coin_coin_collected"]
