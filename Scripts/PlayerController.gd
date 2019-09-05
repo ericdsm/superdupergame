@@ -6,6 +6,7 @@ onready var LivesLabel = get_node("/root/Root/CanvasLayer/LivesLabel")
 onready var ScoreLabel = get_node("/root/Root/CanvasLayer/ScoreLabel")
 
 var move = Vector2()
+var living = true
 
 func _ready():
 	updateUi()
@@ -37,9 +38,14 @@ func updateUi():
 	ScoreLabel.set_text(str("Score: ", GameData.score))
 
 func _on_Area2D_spiked():
-	GameData.lives -= 1
-	updateUi()
-	get_tree().reload_current_scene()
+	if living:
+		living = false
+		GameData.lives -= 1
+		updateUi()
+		if GameData.lives >= 0:
+			get_tree().reload_current_scene()
+		else:
+			get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 
 func _on_Flag_nextlevel(level):

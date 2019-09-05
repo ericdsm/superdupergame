@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Win" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 188.245
+margin_top = 104.598
+margin_right = 301.245
+margin_bottom = 118.598
+rect_scale = Vector2( 6.28, 8.76 )
+text = "SuperDuperGame"

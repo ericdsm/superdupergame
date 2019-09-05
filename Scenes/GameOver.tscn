@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="Win" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 114.864
+margin_top = 374.405
+margin_right = 346.864
+margin_bottom = 388.405
+rect_scale = Vector2( 3.49306, 5.10761 )
+text = "OMAE NO GEEMU WA MOU OWARU"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 826.024
+margin_top = 444.839
+margin_right = 1058.02
+margin_bottom = 458.839
+rect_scale = Vector2( 1.91682, 3.19616 )
+text = "(Nani!?)"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 364.792
+margin_top = 203.999
+margin_right = 596.792
+margin_bottom = 217.999
+rect_scale = Vector2( 3.49306, 5.10761 )
+text = "Game Over"
